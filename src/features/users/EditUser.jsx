@@ -17,18 +17,24 @@ export function EditUser() {
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
+  const [address, setAddress] = useState(user.address);
+  const [contact, setContact] = useState(user.contact);
   const [error, setError] = useState(null);
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
+  const handleAddress = (e) => setAddress(e.target.value);
+  const handleContact = (e) => setContact(e.target.value);
 
   const handleClick = () => {
-    if (name && email) {
+    if (name && email && address && contact) {
       dispatch(
         userUpdated({
           id: userId,
           name,
           email,
+          address,
+          contact,
         })
       );
 
@@ -63,6 +69,24 @@ export function EditUser() {
             id="emailInput"
             onChange={handleEmail}
             value={email}
+          />
+             <label htmlFor="emailInput">Address</label>
+          <input
+            className="u-full-width"
+            type="email"
+            placeholder="test@mailbox.com"
+            id="emailInput"
+            onChange={handleAddress}
+            value={address}
+          />
+            <label htmlFor="emailInput">Contact number</label>
+          <input
+            className="u-full-width"
+            type="email"
+            placeholder="test@mailbox.com"
+            id="emailInput"
+            onChange={handleContact}
+            value={contact}
           />
           {error && error}
           <button onClick={handleClick} className="button-primary">

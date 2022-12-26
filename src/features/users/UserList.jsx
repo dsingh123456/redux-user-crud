@@ -15,8 +15,8 @@ export function UserList() {
 
   return (
     <div className="container">
-      <div className="row">
-        <h1>User login detail</h1>
+      <div className="row-name">
+        <h1>list of student</h1>
       </div>
       <div className="row">
         <div className="two columns">
@@ -29,7 +29,7 @@ export function UserList() {
         </div>
         <div className="two columns">
           <Link to="/add-user">
-            <button style={{backgroundColor:'white'}}>Add user</button>
+            <button style={{ backgroundColor: "white" }}>Add student</button>
           </Link>
         </div>
       </div>
@@ -39,24 +39,30 @@ export function UserList() {
         ) : (
           <table className="u-full-width">
             <thead>
-              <tr>
-                <th>ID</th>
+              <tr style={{background:"#aff7af"}}>
+                <th>ROLLNO</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>ADDRESS</th>
+                <th>CONTACT NUMBER</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {entities.length &&
-                entities.map(({ id, name, email }, i) => (
-                  <tr key={i}>
+                entities.map(({ id, name, email,address,contact }, i) => (
+                  <tr key={i} style={{background:"#b3eeff"}}>
                     <td>{id}</td>
                     <td>{name}</td>
                     <td>{email}</td>
+
+                    <td>{address}</td>
+                    <td>{contact}</td>
+
                     <td>
-                      <button onClick={() => handleDelete(id)}>Delete</button>
+                      <button style={{background:"#c5bde7"}} onClick={() => handleDelete(id)}>Delete</button>
                       <Link to={`/edit-user/${id}`}>
-                        <button>Edit</button>
+                        <button style={{background:"#c5bde7"}}>Edit</button>
                       </Link>
                     </td>
                   </tr>

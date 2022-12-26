@@ -10,20 +10,26 @@ export function AddUser() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [contact, setContact] = useState("");
   const [error, setError] = useState(null);
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
+  const handleAddress = (e) => setAddress(e.target.value);
+  const handleContact = (e) => setContact(e.target.value);
 
   const usersAmount = useSelector((state) => state.users.entities.length);
 
   const handleClick = () => {
-    if (name && email) {
+    if (name && email && address && contact) {
       dispatch(
         userAdded({
           id: usersAmount + 1,
           name,
           email,
+          address,
+          contact,
         })
       );
 
@@ -35,12 +41,14 @@ export function AddUser() {
 
     setName("");
     setEmail("");
+    setAddress("");
+    setContact("");
   };
 
   return (
     <div className="container">
       <div className="row">
-        <h1>Add user</h1>
+        <h1>Add Student </h1>
       </div>
       <div className="row">
         <div className="three columns">
@@ -61,6 +69,24 @@ export function AddUser() {
             id="emailInput"
             onChange={handleEmail}
             value={email}
+          />
+           <label htmlFor="emailInput">Address</label>
+          <input
+            className="u-full-width"
+            type="email"
+            placeholder="test@mailbox.com"
+            id="emailInput"
+            onChange={handleAddress}
+            value={address}
+          />
+            <label htmlFor="emailInput">Contact number</label>
+          <input
+            className="u-full-width"
+            type="email"
+            placeholder="test@mailbox.com"
+            id="emailInput"
+            onChange={handleContact}
+            value={contact}
           />
           {error && error}
           <button onClick={handleClick} className="button-primary">

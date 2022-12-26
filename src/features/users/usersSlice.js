@@ -5,20 +5,23 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
     {
       id: 1,
       name: "deepak singh",
-      username: "Deepak123",
+      address: "Bihar,gaya",
       email: "Singh@gmail.com",
+      contact:'9654510879',
     },
     {
       id: 2,
-      name: "Prince",
-      username: "pksingh",
+      name: "Raushan",
+      address: "Noida, sector 19,UP",
       email: "pksingh123@gmail.com",
+      contact:'9854512879',
     },
     {
       id: 3,
       name: "Aman",
-      username: "Aman123",
+      address: "Chennai,vadapalani",
       email: "asingh@gmail.com",
+      contact:'9654510879',
     },
   ];
   return users;
@@ -35,11 +38,13 @@ const usersSlice = createSlice({
       state.entities.push(action.payload);
     },
     userUpdated(state, action) {
-      const { id, name, email } = action.payload;
+      const { id, name, email,address,contact } = action.payload;
       const existingUser = state.entities.find((user) => user.id === id);
       if (existingUser) {
         existingUser.name = name;
         existingUser.email = email;
+        existingUser.address = address;
+        existingUser.contact = contact;
       }
     },
     userDeleted(state, action) {
