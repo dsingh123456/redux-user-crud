@@ -8,7 +8,6 @@ export function UserList() {
 
   const { entities } = useSelector((state) => state.users);
   const loading = useSelector((state) => state.loading);
-
   const handleDelete = (id) => {
     dispatch(userDeleted({ id }));
   };

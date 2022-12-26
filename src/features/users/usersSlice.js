@@ -9,6 +9,7 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
       email: "Singh@gmail.com",
       contact:'9654510879',
     },
+    
     {
       id: 2,
       name: "Raushan",

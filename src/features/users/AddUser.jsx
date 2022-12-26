@@ -34,6 +34,7 @@ export function AddUser() {
       );
 
       setError(null);
+      
       history.push("/");
     } else {
       setError("Fill in all fields");
