@@ -32,7 +32,6 @@ export function AddUser() {
           contact,
         })
       );
-
       setError(null);
       
       history.push("/");

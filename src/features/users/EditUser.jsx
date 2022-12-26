@@ -62,7 +62,6 @@ export function EditUser() {
             value={name}
           />
           <label htmlFor="emailInput">Email</label>
-          
           <input
             className="u-full-width"
             type="email"
